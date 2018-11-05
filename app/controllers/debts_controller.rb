@@ -9,6 +9,11 @@ class DebtsController < ApplicationController
   end
 
   def create
+    @debt = Debt.create(debts_params)
+  end
+
+  private
+  def debts_params
 
   end
 end
