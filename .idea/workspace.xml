@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48077237-de73-4ffa-89f2-48da71e36c05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/debts_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/debts_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/dept.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20181105120657_create_depts.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/fixtures/depts.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/dept_test.rb" beforeDir="false" />
-    </list>
+    <list default="true" id="48077237-de73-4ffa-89f2-48da71e36c05" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -85,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/debts_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -206,10 +198,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2232" />
+    <option name="x" value="1985" />
     <option name="y" value="-4" />
-    <option name="width" value="1398" />
-    <option name="height" value="1020" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -424,15 +416,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1541418904112</updated>
-      <workItem from="1541418905425" duration="7003000" />
+      <workItem from="1541418905425" duration="7644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7003000" />
+    <option name="totallyTimeSpent" value="7644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2039801" />
@@ -565,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/debts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
