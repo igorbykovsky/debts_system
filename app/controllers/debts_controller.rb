@@ -3,11 +3,15 @@ class DebtsController < ApplicationController
     @debts = Debt.all
   end
 
+  def show
+    @debt = Debt.find(params[:id])
+  end
+
   def new
     @debt = Debt.new
   end
 
-  def show
+  def edit
     @debt = Debt.find(params[:id])
   end
 
@@ -17,6 +21,16 @@ class DebtsController < ApplicationController
       redirect_to @debt
     else
       render 'new'
+    end
+  end
+
+  def update
+    @debt = Debt.find(params[:id])
+
+    if @debt.update(debt_params)
+      redirect_to @debt
+    else
+      render 'edit'
     end
   end
 

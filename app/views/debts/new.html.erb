@@ -1,18 +1,21 @@
 <h1>Create New Debt</h1>
 
+<%= form_with scope: :debt, url: debts_path, local: true do |f| %>
 <% if @debt.errors.any? %>
-  <h2>
-    <%= pluralize(@debt.errors.count, "error") %> prohibited
-    this article from being saved:
-  </h2>
-  <ul>
-    <% @debt.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@debt.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @debt.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
-<%= form_for :debt, url: debts_path do |f| %>
+<%#= form_for :debt, url: debts_path do |f| %>
   <p>
     Sum<br>
     <%= f.text_field(:sum, {:class => 'form-control'}) %>
