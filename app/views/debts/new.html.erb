@@ -1,5 +1,17 @@
 <h1>Create New Debt</h1>
 
+<% if @debt.errors.any? %>
+  <h2>
+    <%= pluralize(@debt.errors.count, "error") %> prohibited
+    this article from being saved:
+  </h2>
+  <ul>
+    <% @debt.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for :debt, url: debts_path do |f| %>
   <p>
     Sum<br>
