@@ -1,0 +1,19 @@
+<h1>Create New Debt</h1>
+
+<%= form_for :debt, url: debts_path do |f| %>
+  <p>
+    Sum<br>
+    <%= f.text_field(:sum, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    Description<br>
+    <%= f.text_field(:description, {:class => 'form-control'})%>
+  </p>
+  <p>
+    Date<br>
+    <%= f.date_select :deal_date%>
+  </p>
+  <p>
+    <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+<% end %>
