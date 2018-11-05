@@ -8,7 +8,7 @@ class DebtsController < ApplicationController
   end
 
   def show
-
+    @debt = Debt.find(params[:id])
   end
 
   def create
@@ -18,6 +18,13 @@ class DebtsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @debt = Debt.find(params[:id])
+    @debt.destroy
+
+    redirect_to debts_path
   end
 
   private
