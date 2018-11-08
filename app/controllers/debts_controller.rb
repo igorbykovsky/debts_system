@@ -1,48 +1,60 @@
 class DebtsController < ApplicationController
   def index
-    @debts = Debt.all
+    @debtors = Debtor.all
   end
 
-  def show
-    @debt = Debt.find(params[:id])
-  end
-
+  # def show
+  #   @debtor = Debtor.find(params[:id])
+  # end
+  #
   def new
-    @debt = Debt.new
+    @debtor = Debtor.find(params[:debtor_id])
   end
 
   def edit
-    @debt = Debt.find(params[:id])
+    @debtor = Debtor.find(params[:debtor_id])
+    @debt = @debtor.debts.find(params[:id])
+
   end
 
   def create
-    @debt = Debt.create(debt_params)
+    @debtor = Debtor.find(params[:debtor_id])
+    @debt = @debtor.debts.create(debt_params)
+
     if @debt.errors.empty?
-      redirect_to @debt
+      redirect_to @debtor
     else
       render 'new'
     end
   end
 
   def update
-    @debt = Debt.find(params[:id])
+    @debtor = Debtor.find(params[:debtor_id])
+    @debt = @debtor.debts.find(params[:id])
 
     if @debt.update(debt_params)
-      redirect_to @debt
+      redirect_to @debtor
     else
       render 'edit'
     end
   end
 
   def destroy
-    @debt = Debt.find(params[:id])
+    @debtor = Debtor.find(params[:debtor_id])
+    @debt = @debtor.debts.find(params[:id])
     @debt.destroy
 
-    redirect_to debts_path
+    redirect_to @debtor
+  end
+
+  def destroy_all
+    @debtor = Debtor.find(params[:debtor_id])
+    @debtor.debts.each {|debt| debt.destroy}
+
+    redirect_to debtors_path
   end
 
   private
-
     def debt_params
       params.require(:debt).permit(:sum, :description, :deal_date)
     end

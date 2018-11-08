@@ -1,21 +1,20 @@
-<h1>Create New Debt</h1>
+<h1>Create New Debt for Debtor <%= "#{@debtor.name} #{@debtor.group}" %></h1>
 
-<%= form_with scope: :debt, url: debts_path, local: true do |f| %>
-<% if @debt.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@debt.errors.count, "error") %> prohibited
-      this article from being saved:
-    </h2>
-    <ul>
-      <% @debt.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= form_with(model: [@debtor, @debtor.debts.build], local: true) do |f| %>
+<%# if @debtor.errors.any? %>
+<!--  <div id="error_explanation">-->
+<!--    <h2>-->
+<!--      <%#= pluralize(@debtor.errors.count, "error") %> prohibited-->
+<!--      this article from being saved:-->
+<!--    </h2>-->
+<!--    <ul>-->
+      <%# @debtor.errors.full_messages.each do |msg| %>
+<!--        <li><%#= msg %></li>-->
+      <%# end %>
+<!--    </ul>-->
+<!--  </div>-->
+<%# end %>
 
-<%#= form_for :debt, url: debts_path do |f| %>
   <p>
     Sum<br>
     <%= f.text_field(:sum, {:class => 'form-control'}) %>
