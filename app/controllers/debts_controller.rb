@@ -3,18 +3,14 @@ class DebtsController < ApplicationController
     @debtors = Debtor.all
   end
 
-  # def show
-  #   @debtor = Debtor.find(params[:id])
-  # end
-  #
   def new
     @debtor = Debtor.find(params[:debtor_id])
+    @debt = @debtor.debts.new
   end
 
   def edit
     @debtor = Debtor.find(params[:debtor_id])
     @debt = @debtor.debts.find(params[:id])
-
   end
 
   def create

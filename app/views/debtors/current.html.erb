@@ -17,9 +17,9 @@
         <td><%= debtor.group %></td>
         <td><%= debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN</td>
         <td>
-          <button class="btn btn-outline-warning"><%= link_to 'Edit', edit_debtor_path(debtor) %></button>
           <button class="btn btn-outline-info"><%= link_to 'Details', debtor_path(debtor) %></button>
-          <button class="btn btn-outline-danger"><%= link_to 'In counting', debtor_path(debtor),
+          <button class="btn btn-outline-warning"><%= link_to 'Edit', edit_debtor_path(debtor) %></button>
+          <button class="btn btn-outline-danger"><%= link_to 'Delete', debtor_path(debtor),
                                                              method: :delete, data: { confirm: 'Are you sure?' }%></button>
         </td>
       </tr>

@@ -4,4 +4,5 @@ class Debtor < ApplicationRecord
   validates :name, :group, presence: true,
             length: { minimum: 3 }
 
+  before_save {self.name.capitalize! unless name.blank?}
 end

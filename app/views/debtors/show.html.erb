@@ -25,7 +25,9 @@
   </tbody>
 </table>
 
-<button class="btn btn-outline-secondary"><%= link_to 'Back', debtors_path%></button>
-<button class="btn btn-outline-secondary"><%= link_to 'New Debt', new_debtor_debt_path(@debtor) %></button>
-<button class="btn btn-outline-danger"> <%= link_to 'All debts paid', destroy_all_debtor_debts_path(@debtor),
-                                                    data: { confirm: 'Are you sure?' }%></button>
+<p>
+  <button class="btn btn-outline-secondary"><%= link_to 'New Debt', new_debtor_debt_path(@debtor) %></button>
+  <button class="btn btn-outline-danger"> <%= link_to 'All debts paid', destroy_all_debtor_debts_path(@debtor),
+                                                      data: { confirm: 'Are you sure?' }%></button>
+</p>
+  <button class="btn btn-outline-secondary"><%= link_to 'Back', debtors_path%></button>
