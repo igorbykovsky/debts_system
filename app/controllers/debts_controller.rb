@@ -1,7 +1,4 @@
 class DebtsController < ApplicationController
-  def index
-    @debtors = Debtor.all
-  end
 
   def new
     @debtor = Debtor.find(params[:debtor_id])

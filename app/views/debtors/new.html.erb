@@ -1,6 +1,6 @@
 <h1>Add new Debtor</h1>
 
-<%= form_with scope: :debtor, url: debtors_path, local: true do |f| %>
+<%= form_with(scope: :debtor, url: debtors_path, local: true) do |f| %>
   <% if @debtor.errors.any? %>
     <div id="error_explanation">
       <h2>
