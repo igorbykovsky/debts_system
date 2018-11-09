@@ -1,10 +1,11 @@
 class DebtorsController < ApplicationController
+  
   def index
     @debtors = Debtor.all
   end
 
   def show
-    @debtor = Debtor.find(params[:id])
+    find_debtor
   end
 
   def new
@@ -12,7 +13,7 @@ class DebtorsController < ApplicationController
   end
 
   def edit
-    @debtor = Debtor.find(params[:id])
+    find_debtor
   end
 
   def create
@@ -25,7 +26,7 @@ class DebtorsController < ApplicationController
   end
 
   def update
-    @debtor = Debtor.find(params[:id])
+    find_debtor
     if @debtor.update(debtor_params)
       redirect_to @debtor
     else
@@ -34,7 +35,7 @@ class DebtorsController < ApplicationController
   end
 
   def destroy
-    @debtor = Debtor.find(params[:id])
+    find_debtor
     @debtor.destroy
 
     redirect_to debtors_path
@@ -48,5 +49,10 @@ class DebtorsController < ApplicationController
   private
     def debtor_params
       params.require(:debtor).permit(:name, :group)
+    end
+
+    def find_debtor
+      @debtor = Debtor.where(id: params[:id]).first
+      raise ActiveRecord::RecordNotFound unless @debtor
     end
 end

@@ -1,17 +1,17 @@
 class DebtsController < ApplicationController
 
   def new
-    @debtor = find_debtor
+    find_debtor
     @debt = @debtor.debts.new
   end
 
   def edit
-    @debtor = find_debtor
-    @debt = @debtor.debts.find(params[:id])
+    find_debtor
+    find_debt
   end
 
   def create
-    @debtor = find_debtor
+    find_debtor
     @debt = @debtor.debts.create(debt_params)
 
     if @debt.errors.empty?
@@ -22,8 +22,8 @@ class DebtsController < ApplicationController
   end
 
   def update
-    @debtor = find_debtor
-    @debt = @debtor.debts.find(params[:id])
+    find_debtor
+    find_debt
 
     if @debt.update(debt_params)
       redirect_to @debtor
@@ -33,15 +33,15 @@ class DebtsController < ApplicationController
   end
 
   def destroy
-    @debtor = find_debtor
-    @debt = @debtor.debts.find(params[:id])
+    find_debtor
+    find_debt
     @debt.destroy
 
     redirect_to @debtor
   end
 
   def destroy_all
-    @debtor = find_debtor
+    find_debtor
     @debtor.debts.each {|debt| debt.destroy}
 
     redirect_to debtors_path
@@ -53,6 +53,12 @@ class DebtsController < ApplicationController
     end
 
     def find_debtor
-      Debtor.find(params[:debtor_id])
+      @debtor = Debtor.where(id: params[:debtor_id]).first
+      raise ActiveRecord::RecordNotFound unless @debtor
+    end
+
+    def find_debt
+      @debt = @debtor.debts.where(id: params[:id]).first
+      raise ActiveRecord::RecordNotFound unless @debt
     end
 end
