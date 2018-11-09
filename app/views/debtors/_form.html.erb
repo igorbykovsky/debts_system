@@ -1,0 +1,29 @@
+<%= form_with(model: @debtor, local: true) do |f| %>
+  <% if @debtor.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@debtor.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @debtor.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    Debtor<br>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    Group<br>
+    <%= f.select(:group, [['Friend'], ['Colleague'], ['Family'], ['Another']], {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.submit({:class => 'btn btn-success'}) %>
+  </p>
+<% end %>
+
+<button class="btn btn-outline-secondary"><%= link_to 'Back', debtors_path%></button>

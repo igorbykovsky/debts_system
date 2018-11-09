@@ -1,27 +1,3 @@
 <h1>All your Debtors</h1>
 
-<table class="table table-striped table-sm">
-  <thead>
-  <tr>
-    <th>Debtor</th>
-    <th>Group</th>
-    <th>Sum</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @debtors.each do |debtor| %>
-    <tr>
-      <td><%= debtor.name %></td>
-      <td><%= debtor.group %></td>
-      <td><%= debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN</td>
-      <td>
-        <button class="btn btn-outline-info"><%= link_to 'Details', debtor_path(debtor) %></button>
-        <button class="btn btn-outline-warning"><%= link_to 'Edit', edit_debtor_path(debtor) %></button>
-        <button class="btn btn-outline-danger"><%= link_to 'Delete', debtor_path(debtor),
-                                                           method: :delete, data: { confirm: 'Are you sure?' }%></button>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render 'debtors/debtors' %>

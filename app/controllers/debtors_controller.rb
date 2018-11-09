@@ -42,11 +42,11 @@ class DebtorsController < ApplicationController
 
   def current
     @debtors = Debtor.all
+    @debtors = @debtors.select { |debtor| debtor.debts.inject(0) {|res, debt| res + debt.sum} != 0 }
   end
 
   private
-
-  def debtor_params
-    params.require(:debtor).permit(:name, :group)
-  end
+    def debtor_params
+      params.require(:debtor).permit(:name, :group)
+    end
 end

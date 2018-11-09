@@ -1,33 +1,3 @@
 <h1>Create New Debt for Debtor <%= "#{@debtor.name} #{@debtor.group}" %></h1>
 
-<%= form_with(model: [@debtor, @debt], local: true) do |f| %>
-<% if @debt.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@debt.errors.count, "error") %> prohibited
-      this article from being saved:
-    </h2>
-    <ul>
-      <% @debt.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-  <p>
-    Sum<br>
-    <%= f.text_field(:sum, {:class => 'form-control'}) %>
-  </p>
-  <p>
-    Description<br>
-    <%= f.text_field(:description, {:class => 'form-control'})%>
-  </p>
-  <p>
-    Date<br>
-    <%= f.date_select :deal_date%>
-  </p>
-  <p>
-    <%= f.submit({:class => 'btn btn-success'}) %>
-  </p>
-<% end %>
+<%= render 'debts/form' %>
