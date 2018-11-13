@@ -53,12 +53,12 @@ class DebtsController < ApplicationController
     end
 
     def find_debtor
-      @debtor = Debtor.where(id: params[:debtor_id]).first
-      raise ActiveRecord::RecordNotFound unless @debtor
+      @debtor = Debtor.find(params[:debtor_id])
+      # raise ActiveRecord::RecordNotFound unless @debtor
     end
 
     def find_debt
-      @debt = @debtor.debts.where(id: params[:id]).first
-      raise ActiveRecord::RecordNotFound unless @debt
+      @debt = @debtor.debts.find(params[:id])
+      # raise ActiveRecord::RecordNotFound unless @debt
     end
 end

@@ -1,5 +1,14 @@
 <h1>Details of Debtor <%= "\"#{@debtor.name} #{@debtor.group}\""  %></h1>
 
+<style>
+  hr {
+    border: none; /* Убираем границу */
+    background-color: black; /* Цвет линии */
+    color: black; /* Цвет линии для IE6-7 */
+    height: 2px; /* Толщина линии */
+  }
+</style>
+
 <table class="table table-striped table-sm">
   <thead>
   <tr>
@@ -24,6 +33,11 @@
 <% end %>
   </tbody>
 </table>
+<hr>
+<p>
+  <b>Total:</b>
+  <%= @debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN
+</p>
 
 <p>
   <button class="btn btn-outline-secondary"><%= link_to 'New Debt', new_debtor_debt_path(@debtor) %></button>

@@ -1,5 +1,5 @@
 class DebtorsController < ApplicationController
-  
+
   def index
     @debtors = Debtor.all
   end
@@ -52,7 +52,7 @@ class DebtorsController < ApplicationController
     end
 
     def find_debtor
-      @debtor = Debtor.where(id: params[:id]).first
-      raise ActiveRecord::RecordNotFound unless @debtor
+      @debtor = Debtor.find(params[:id])
+      # raise ActiveRecord::RecordNotFound unless @debtor
     end
 end
