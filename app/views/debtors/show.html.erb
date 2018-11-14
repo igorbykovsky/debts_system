@@ -25,9 +25,9 @@
         <td><%= debt.sum %> BYN</td>
         <td><%= debt.description %></td>
         <td>
-          <button class="btn btn-outline-danger"> <%= link_to 'Paid', [debt.debtor, debt],
-                                                             method: :delete, data: { confirm: 'Are you sure?' }%></button>
-          <button class="btn btn-outline-warning"><%= link_to 'Edit', edit_debtor_debt_path(@debtor, debt) %></button>
+          <%= link_to 'Paid', [debt.debtor, debt],
+                      method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger' %>
+          <%= link_to 'Edit', edit_debtor_debt_path(@debtor, debt), :class => 'btn btn-outline-warning' %>
         </td>
       </tr>
 <% end %>
@@ -36,12 +36,12 @@
 <hr>
 <p>
   <b>Total:</b>
-  <%= @debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN
+  <b><%= @debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN</b>
 </p>
 
 <p>
-  <button class="btn btn-outline-secondary"><%= link_to 'New Debt', new_debtor_debt_path(@debtor) %></button>
-  <button class="btn btn-outline-danger"> <%= link_to 'All debts paid', destroy_all_debtor_debts_path(@debtor),
-                                                      data: { confirm: 'Are you sure?' }%></button>
+  <%= link_to 'New Debt', new_debtor_debt_path(@debtor), :class => 'btn btn-outline-success' %>
+  <%= link_to 'All debts paid', destroy_all_debtor_debts_path(@debtor),
+              data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger'%>
 </p>
-  <button class="btn btn-outline-secondary"><%= link_to 'Back', debtors_path%></button>
+  <%= link_to 'Back', debtors_path, :class => 'btn btn-outline-secondary'%>

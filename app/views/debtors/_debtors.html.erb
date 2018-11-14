@@ -14,10 +14,10 @@
       <td><%= debtor.group %></td>
       <td><%= debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN</td>
       <td>
-        <button class="btn btn-outline-info"><%= link_to 'Details', debtor_path(debtor) %></button>
-        <button class="btn btn-outline-warning"><%= link_to 'Edit Debtor', edit_debtor_path(debtor) %></button>
-        <button class="btn btn-outline-danger"><%= link_to 'Delete', debtor_path(debtor),
-                                                           method: :delete, data: { confirm: 'Are you sure?' }%></button>
+        <%= link_to 'Details', debtor_path(debtor), :class => 'btn btn-outline-info' %>
+        <%= link_to 'Edit Debtor', edit_debtor_path(debtor), :class => 'btn btn-outline-warning' %>
+        <%= link_to 'Delete', debtor_path(debtor),
+                    method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger'%>
       </td>
     </tr>
   <% end %>

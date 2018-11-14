@@ -17,10 +17,14 @@ class DebtorsController < ApplicationController
   end
 
   def create
-    @debtor = Debtor.create(debtor_params)
-    if @debtor.errors.empty?
+    @debtor = Debtor.new(debtor_params)
+
+    # @debtor = Debtor.create(debtor_params)
+    if @debtor.save
+      flash[:success] = "Good! You created a Debtor."
       redirect_to @debtor
     else
+      flash.now[:error] = "A few mistakes."
       render 'new'
     end
   end
