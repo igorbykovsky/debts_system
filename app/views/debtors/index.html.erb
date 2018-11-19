@@ -1,3 +1,7 @@
-<h1>All Debtors of <%= current_user.email %> </h1>
-
-<%= render 'debtors/debtors' %>
+<% if user_signed_in? %>
+  <h1>All Debtors of <%= current_user.email %> </h1>
+  <%= render 'debtors/debtors' %>
+<% else %>
+  <h1>Hello, guest!</h1>
+  <h2>Sign in, please!</h2>
+<% end %>

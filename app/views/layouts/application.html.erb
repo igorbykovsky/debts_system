@@ -14,15 +14,15 @@
 
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-bold">Debts Manager</h5>
+    <h5 class="my-0 mr-md-auto font-weight-bold"><%= link_to 'Debts Manager', debtors_path %></h5>
       <% if user_signed_in? %>
         <span class="p-2 text-dark" ><%= link_to "New Debtor", new_debtor_path %></span>
         <span class="p-2 text-dark" ><%= link_to "Current Debtors", current_debtors_path %></span>
         <nav class="my-2 my-md-0 mr-md-3">
         <span class="p-2 text-dark" ><%= link_to "All Debtors", debtors_path %></span>
+        <%= link_to "#{current_user.email}", edit_user_registration_path %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-primary' %>
       <% else %>
-        Hello, guest!
         <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-outline-primary' %>
         or
         <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-outline-primary' %>

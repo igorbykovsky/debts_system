@@ -1,4 +1,5 @@
 class DebtsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     find_debtor
@@ -54,11 +55,9 @@ class DebtsController < ApplicationController
 
     def find_debtor
       @debtor = Debtor.find(params[:debtor_id])
-      # raise ActiveRecord::RecordNotFound unless @debtor
     end
 
     def find_debt
       @debt = @debtor.debts.find(params[:id])
-      # raise ActiveRecord::RecordNotFound unless @debt
     end
 end

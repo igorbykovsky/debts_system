@@ -1,7 +1,10 @@
 class DebtorsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @debtors = Debtor.all
+    if(user_signed_in?)
+      @debtors = Debtor.where(user_id: current_user.id)
+    end
   end
 
   def show
@@ -9,7 +12,7 @@ class DebtorsController < ApplicationController
   end
 
   def new
-    @debtor = Debtor.new
+    @debtor = current_user.debtors.new
   end
 
   def edit
@@ -17,7 +20,7 @@ class DebtorsController < ApplicationController
   end
 
   def create
-    @debtor = Debtor.new(debtor_params)
+    @debtor = current_user.debtors.new(debtor_params)
 
     # @debtor = Debtor.create(debtor_params)
     if @debtor.save
@@ -46,7 +49,7 @@ class DebtorsController < ApplicationController
   end
 
   def current
-    @debtors = Debtor.all
+    @debtors = Debtor.where(user_id: current_user.id)
     @debtors = @debtors.select { |debtor| debtor.debts.inject(0) {|res, debt| res + debt.sum} != 0 }
   end
 
@@ -57,6 +60,5 @@ class DebtorsController < ApplicationController
 
     def find_debtor
       @debtor = Debtor.find(params[:id])
-      # raise ActiveRecord::RecordNotFound unless @debtor
     end
 end

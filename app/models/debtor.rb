@@ -1,5 +1,6 @@
 class Debtor < ApplicationRecord
   has_many :debts, dependent: :destroy
+  belongs_to :user
 
   validates :name, :group, presence: true,
             length: { minimum: 3 }
