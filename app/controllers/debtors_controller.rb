@@ -60,5 +60,6 @@ class DebtorsController < ApplicationController
 
     def find_debtor
       @debtor = Debtor.find(params[:id])
+      raise ActiveRecord::RecordNotFound unless @debtor.user_id == current_user.id
     end
 end
