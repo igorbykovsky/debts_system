@@ -2,7 +2,6 @@
   <% if @debt.errors.any? %>
     <div class="alert alert-danger">
       <h2>
-        <%= @debt.errors.count %>
         <%= t('common.errors') %>
       </h2>
       <ul>
@@ -23,7 +22,7 @@
   </p>
   <p>
     <%= f.label :deal_date %>
-    <%= f.date_select :deal_date%>
+    <%= f.date_select :deal_date, locale: :en %>
   </p>
   <p>
     <%= f.submit({:class => 'btn btn-success'}) %>

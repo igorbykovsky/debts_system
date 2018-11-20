@@ -24,10 +24,10 @@ class DebtorsController < ApplicationController
 
     # @debtor = Debtor.create(debtor_params)
     if @debtor.save
-      flash[:success] = "Good! You created a Debtor."
+      flash[:success] = t('debtors.create.success')
       redirect_to @debtor
     else
-      flash[:danger] = "Debtor not created"
+      flash[:danger] = t('debtors.create.danger')
       render 'new'
     end
   end
@@ -35,9 +35,9 @@ class DebtorsController < ApplicationController
   def update
     find_debtor
     if @debtor.update(debtor_params)
-      redirect_to @debtor, success: "Debtor successfully updated"
+      redirect_to @debtor, success: t('debtors.update.success')
     else
-      flash[:danger] = "Debtor not updated"
+      flash[:danger] = t('debtors.update.danger')
       render 'edit'
     end
   end
@@ -46,7 +46,7 @@ class DebtorsController < ApplicationController
     find_debtor
     @debtor.destroy
 
-    redirect_to debtors_path, success: "Debtor successfully deleted"
+    redirect_to debtors_path, success: t('debtors.delete.success')
   end
 
   def current

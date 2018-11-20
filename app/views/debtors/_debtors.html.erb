@@ -1,10 +1,10 @@
 <table class="table table-striped table-sm">
   <thead>
   <tr>
-    <th>Debtor</th>
-    <th>Group</th>
-    <th>Sum</th>
-    <th>Actions</th>
+    <th><%= t('.debtor') %></th>
+    <th><%= t('.group') %></th>
+    <th><%= t('common.sum') %></th>
+    <th><%= t('common.actions') %></th>
   </tr>
   </thead>
   <tbody>
@@ -14,9 +14,9 @@
       <td><%= debtor.group %></td>
       <td><%= debtor.debts.inject(0) {|res, debt| res + debt.sum} %> BYN</td>
       <td>
-        <%= link_to 'Details', debtor_path(debtor), :class => 'btn btn-outline-info' %>
-        <%= link_to 'Edit Debtor', edit_debtor_path(debtor), :class => 'btn btn-outline-warning' %>
-        <%= link_to 'Delete', debtor_path(debtor),
+        <%= link_to t('.details'), debtor_path(debtor), :class => 'btn btn-outline-info' %>
+        <%= link_to t('common.edit'), edit_debtor_path(debtor), :class => 'btn btn-outline-warning' %>
+        <%= link_to t('common.delete'), debtor_path(debtor),
                     method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger'%>
       </td>
     </tr>

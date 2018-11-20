@@ -1,0 +1,66 @@
+ru:
+  debtors:
+    new:
+      title: 'Добавить Должника'
+    edit:
+      title: 'Редактировать Должника'
+    show:
+      title: "Подробности о долгах"
+      date: 'Дата'
+      description: 'Описание'
+      paid: 'Оплачено'
+      total: 'Итого'
+      new_debt: 'Добавить долг'
+      all_debts_paid: 'Все долги уплачены'
+    form:
+      friend: 'Друг'
+      colleague: 'Коллега'
+      family: 'Семья'
+      another: 'Другое'
+    create:
+      success: 'Должник успешно создан'
+      danger: 'Должник не создан'
+    update:
+      success: 'Должник успешно обновлен'
+      danger: 'Должник не обновлен'
+    delete:
+      success: 'Должник успешно удален'
+    debtors:
+      debtor: 'Должник'
+      group: 'Группа'
+      details: 'Подробнее'
+    index:
+      title: 'Все должники'
+      hello_guest: 'Привет, гость'
+      sign_in: 'Войдите'
+
+  common:
+    errors: 'Возникли ошибки'
+    edit: 'Редактировать'
+    back: 'Назад'
+    sum: 'Сумма'
+    actions: 'Действия'
+    delete: 'Удалить'
+    please: 'Пожалуйста'
+    january: 'январь'
+    february: 'февраль'
+    march: 'март'
+    april: 'апрель'
+    may: 'май'
+    june: 'июнь'
+    july: 'июль'
+    august: 'август'
+    september: 'сентябрь'
+    october: 'октябрь'
+    november: 'ноябрь'
+    december: 'декабрь'
+  layouts:
+    application:
+      title: "Система долгов"
+      new: "Создать должника"
+      current: "Текущие дожники"
+      all: 'Все должники'
+      sign_out: 'Выйти'
+      sign_in: 'Войти'
+      sign_up: 'Регистрация'
+

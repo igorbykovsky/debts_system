@@ -2,7 +2,6 @@
   <% if @debtor.errors.any? %>
     <div class="alert alert-danger">
       <h2>
-        <%= @debtor.errors.count %>
         <%= t('common.errors') %>
       </h2>
       <ul>
@@ -19,11 +18,11 @@
   </p>
   <p>
     <%= f.label :group %>
-    <%= f.select(:group, [['Friend'], ['Colleague'], ['Family'], ['Another']], {:class => 'form-control'}) %>
+    <%= f.select(:group, [[t('.friend')], [t('.colleague')], [t('.family')], [t('.another')]], {:class => 'form-control'}) %>
   </p>
   <p>
     <%= f.submit({:class => 'btn btn-success'}) %>
   </p>
 <% end %>
 
-<%= link_to 'Back', debtors_path, :class => 'btn btn-outline-secondary'%>
+<%= link_to t('common.back'), debtors_path, :class => 'btn btn-outline-secondary'%>

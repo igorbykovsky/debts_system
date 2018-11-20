@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      debtor: 'Должник'
+    attributes:
+      debtor:
+        name: 'Имя'
+        group: 'Группа'
+      debts:
+        deal_date: 'Дата сделки'
+    errors:
+      messages:
+        blank: 'не может быть пустым'
+        too_short: 'слишком короткое'

@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      debtor: 'Debtor'
+    attributes:
+      debtor:
+        name: 'Name'
+        group: 'Group'
+    errors:
+      messages:
+        blank: "can't be blank"
+        too_short: 'too short'
