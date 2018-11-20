@@ -16,8 +16,9 @@ class DebtsController < ApplicationController
     @debt = @debtor.debts.create(debt_params)
 
     if @debt.errors.empty?
-      redirect_to @debtor
+      redirect_to @debtor, success: "Debt successfully created"
     else
+      flash[:danger] = "Debt not created"
       render 'new'
     end
   end
@@ -27,8 +28,9 @@ class DebtsController < ApplicationController
     find_debt
 
     if @debt.update(debt_params)
-      redirect_to @debtor
+      redirect_to @debtor, success: "Debt successfully updated"
     else
+      flash[:danger] = "Debt not updated"
       render 'edit'
     end
   end
@@ -38,14 +40,14 @@ class DebtsController < ApplicationController
     find_debt
     @debt.destroy
 
-    redirect_to @debtor
+    redirect_to @debtor, success: "Debtor successfully deleted"
   end
 
   def destroy_all
     find_debtor
     @debtor.debts.each {|debt| debt.destroy}
 
-    redirect_to debtors_path
+    redirect_to debtors_path, success: "All debts successfully deleted"
   end
 
   private
