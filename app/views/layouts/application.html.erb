@@ -35,7 +35,9 @@
       <div class="row">
         <div class="col-md-12">
           <% flash.each do |name, msg| %>
-            <div class="alert alert-<%= name %>">
+            <div class="alert <%= bootstrap_class_for(name) %> alert-dismissible">
+<!--              <button class="close" data-dismiss="alert">&times;</button>-->
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
               <%= msg %>
             </div>
           <% end %>
