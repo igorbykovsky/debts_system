@@ -6,4 +6,8 @@ class Debtor < ApplicationRecord
             length: { minimum: 3 }
 
   before_save {self.name.capitalize! unless name.blank?}
+
+  def calc_total
+    debts.inject(0) { |res, debt| res + debt.sum}
+  end
 end
